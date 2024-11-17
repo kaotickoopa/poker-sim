@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 public class DeckHandler {
-    HashMap<Integer, String> suitMap = new HashMap<Integer, String>();
-    HashMap<Integer, String> valueMap = new HashMap<Integer, String>();
+    HashMap<Integer, String> suitMap = new HashMap<>();
+    HashMap<Integer, String> valueMap = new HashMap<>();
 
     public DeckHandler(){
         setUpSuitsList();
@@ -10,7 +10,7 @@ public class DeckHandler {
     }
 
     private ArrayList<Card> initializeNewDeck(){
-        ArrayList<Card> newDeck = new ArrayList<Card>();
+        ArrayList<Card> newDeck = new ArrayList<>();
         for(int i = 0; i < 13; i++){
             for(int j = 0; j < 4; j++){
                 String value = valueMap.get(i);
@@ -23,7 +23,7 @@ public class DeckHandler {
     }
 
     public ArrayList<Card> shuffleCurrentDeck(ArrayList<Card> oldDeck){
-        ArrayList<Card> newDeck = new ArrayList<Card>();
+        ArrayList<Card> newDeck = new ArrayList<>();
         while(!oldDeck.isEmpty()){
             int deckSize = oldDeck.size()-1;
             int randomIndex = (int)(Math.random()*deckSize);
@@ -39,12 +39,6 @@ public class DeckHandler {
         return newDeck;
     }
 
-    public void printDeck(ArrayList<Card> deckOfCards){
-        for(int i = 0; i < deckOfCards.size(); i++){
-            Card currentCard = deckOfCards.get(i);
-            System.out.println(i + 1 + ". Value: " + currentCard.getValue() + ", Suit: " + currentCard.getSuit());
-        }
-    }
 
     private void setUpSuitsList(){
         suitMap.put(0, "S");
@@ -55,17 +49,25 @@ public class DeckHandler {
 
     private void setUpValuesList(){
         valueMap.put(0, "A");
-        valueMap.put(2, "2");
-        valueMap.put(3, "3");
-        valueMap.put(4, "4");
-        valueMap.put(5, "5");
-        valueMap.put(6, "6");
-        valueMap.put(7, "7");
-        valueMap.put(8, "8");
-        valueMap.put(9, "9");
-        valueMap.put(10, "10");
-        valueMap.put(11, "J");
-        valueMap.put(12, "Q");
-        valueMap.put(13, "K");
+        valueMap.put(1, "2");
+        valueMap.put(2, "3");
+        valueMap.put(3, "4");
+        valueMap.put(4, "5");
+        valueMap.put(5, "6");
+        valueMap.put(6, "7");
+        valueMap.put(7, "8");
+        valueMap.put(8, "9");
+        valueMap.put(9, "10");
+        valueMap.put(10, "J");
+        valueMap.put(11, "Q");
+        valueMap.put(12, "K");
+    }
+
+    public HashMap<Integer, String> getSuitMap() {
+        return suitMap;
+    }
+
+    public void setSuitMap(HashMap<Integer, String> suitMap) {
+        this.suitMap = suitMap;
     }
 }
