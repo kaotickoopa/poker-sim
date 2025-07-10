@@ -3,10 +3,11 @@ import java.util.HashMap;
 public class DeckHandler {
     HashMap<Integer, String> suitMap = new HashMap<>();
     HashMap<Integer, String> valueMap = new HashMap<>();
-
+    HashMap<String, Integer> pointMap = new HashMap<>();
     public DeckHandler(){
         setUpSuitsList();
         setUpValuesList();
+        setUpPointList();
     }
 
     private ArrayList<Card> initializeNewDeck(){
@@ -15,7 +16,8 @@ public class DeckHandler {
             for(int j = 0; j < 4; j++){
                 String value = valueMap.get(i);
                 String suit = suitMap.get(j);
-                Card card = new Card(value, suit);
+                Integer points = pointMap.get(value);
+                Card card = new Card(value, suit, points);
                 newDeck.add(card);
             }
         }
@@ -35,8 +37,7 @@ public class DeckHandler {
 
     public ArrayList<Card> shuffleNewDeck(){
         ArrayList<Card> oldDeck = initializeNewDeck();
-        ArrayList<Card> newDeck = shuffleCurrentDeck(oldDeck);
-        return newDeck;
+        return shuffleCurrentDeck(oldDeck);
     }
 
 
@@ -61,6 +62,22 @@ public class DeckHandler {
         valueMap.put(10, "J");
         valueMap.put(11, "Q");
         valueMap.put(12, "K");
+    }
+
+    private void setUpPointList(){
+        pointMap.put("A",1);
+        pointMap.put("2", 2);
+        pointMap.put("3", 3);
+        pointMap.put("4", 4);
+        pointMap.put("5", 5);
+        pointMap.put("6", 6);
+        pointMap.put("7", 7);
+        pointMap.put("8", 8);
+        pointMap.put("9", 9);
+        pointMap.put("10", 10);
+        pointMap.put("J", 10);
+        pointMap.put("Q", 10);
+        pointMap.put("K", 10);
     }
 
     public HashMap<Integer, String> getSuitMap() {

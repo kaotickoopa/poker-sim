@@ -1,9 +1,11 @@
 public class Card {
     String value;
     String suit;
-    public Card(String value, String suit){
+    Integer points;
+    public Card(String value, String suit, int points){
         this.value = value;
         this.suit = suit;
+        this.points = points;
     }
 
     public String getValue(){
@@ -11,5 +13,10 @@ public class Card {
     }
     public String getSuit(){
         return suit;
+    }
+    public Integer getPoints() { return points; }
+
+    public String toString(){
+        return value + " of " + suit;
     }
 }

@@ -19,8 +19,7 @@ public class Deck {
     }
 
     public Card drawCard(){
-        Card drawnCard = deck.remove(0);
-        return drawnCard;
+        return deck.remove(0);
     }
 
     public int getsize(){
