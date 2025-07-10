@@ -1,3 +1,11 @@
+/*
+    Name: Game class (abstract)
+    Author: Mason Cormany
+    Date: 07/10/25
+    Purpose: Abstract class for any casino card game
+ */
+
+
 import java.util.HashMap;
 import java.util.Scanner;
 

@@ -1,3 +1,11 @@
+/*
+    Name: Deck class
+    Author: Mason Cormany
+    Date: 07/10/25
+    Purpose: Holds an arraylist of cards. Holds methods to add and remove cards as needed.
+ */
+
+
 import java.util.ArrayList;
 
 public class Deck {
@@ -5,7 +13,7 @@ public class Deck {
 
     public Deck(){
     }
-
+    //Purpose: Works as a to_string
     public void printDeck(){
         System.out.println("Printing deck...");
         for(int i = 0; i < deck.size(); i++){
@@ -19,16 +27,11 @@ public class Deck {
     }
 
     public Card drawCard(){
-        return deck.remove(0);
-    }
-
-    public int getsize(){
-        return deck.size();
+        return deck.removeFirst();
     }
 
     public Card removeCard(int index){
-        Card removedCard = deck.remove(index);
-        return removedCard;
+        return deck.remove(index);
     }
 
     public void setDeck(ArrayList<Card> deck) {

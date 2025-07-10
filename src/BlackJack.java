@@ -1,3 +1,10 @@
+/*
+    Name: BlackJack class
+    Author: Mason Cormany
+    Date: 07/10/25
+    Purpose: Concrete Blackjack class that holds all game rules.
+ */
+
 import java.util.Scanner;
 
 public class BlackJack extends Game{
@@ -5,7 +12,7 @@ public class BlackJack extends Game{
     boolean isGameOver = false;
     public BlackJack(){
     }
-
+    //Purpose: Adds cards to the dealer and specified number of players. Sets up handmap
     @Override
      void startGame(){
         System.out.println("How many people are playing Blackjack?");
@@ -13,18 +20,21 @@ public class BlackJack extends Game{
         Hand currentHand = new Hand();
         Card firstDrawnCard = playingDeck.drawCard();
         Card secondDrawnCard = playingDeck.drawCard();
-        currentHand.populateHand(firstDrawnCard, secondDrawnCard);
+        currentHand.addToHand(firstDrawnCard);
+        currentHand.addToHand(secondDrawnCard);
 
         handMap.put(0, currentHand);
         for(int i = 0; i < numberOfPlayers; i++){
             currentHand = new Hand();
             firstDrawnCard = playingDeck.drawCard();
             secondDrawnCard = playingDeck.drawCard();
-            currentHand.populateHand(firstDrawnCard, secondDrawnCard);
-
+            currentHand.addToHand(firstDrawnCard);
+            currentHand.addToHand(secondDrawnCard);
             handMap.put(i+1, currentHand);
         }
     }
+
+    //Purpose: Base player turn, player can hit or stand. They lose when they bust
     @Override
      void playerTurn(){
         for(int i = 1; i < handMap.size(); i++){
@@ -52,7 +62,7 @@ public class BlackJack extends Game{
             }
         }
     }
-
+    //Purpose: Normal dealer turn, they draw until their hand value is greater than 16
     @Override
      void dealerTurn(){
         Hand currentHand = handMap.get(0);
@@ -71,7 +81,7 @@ public class BlackJack extends Game{
         }
 
     }
-
+    //Purpose: Ends the game, sees if the players are able to beat the dealer. Skips players who have busted.
     @Override
      void showDown(){
         Hand dealerHand = handMap.get(0);
@@ -91,14 +101,8 @@ public class BlackJack extends Game{
 
         }
     }
-    @Override
-    public void playGame(){
-        startGame();
-        playerTurn();
-        dealerTurn();
-        showDown();
-    }
 
+    //Purpose: Easy function to ask for player's input
     @Override
      String getUserInput(Scanner in){
         System.out.println("Do you hit (H) or stay (S)?");
