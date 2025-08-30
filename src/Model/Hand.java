@@ -1,5 +1,5 @@
-/*
-    Name: Hand class
+package Model;/*
+    Name: Model.Hand class
     Author: Mason Cormany
     Date: 07/10/25
     Purpose: Works as a mini deck that has points and can determine if the player's turn is over
@@ -14,10 +14,10 @@ public class Hand {
 
     //Purpose: Prints the player's hand *make to_string
     public void printHand(){
-        System.err.println("Hand: ");
         for(int i = 0; i < hand.size();i++){
-            System.out.println("Card " + i + ": " + hand.get(i));
+            System.out.println("Model.Card " + i + ": " + hand.get(i));
         }
+        System.out.println("\n");
     }
 
     public void addToHand(Card card){
@@ -26,5 +26,18 @@ public class Hand {
         points += card.points;
     }
 
-    public int getHandsPoints(){ return points; }
+    public int getHandsPoints(){
+        boolean ace_checker = false;
+
+        for(Card current_card : hand){
+            if(current_card.value.equals("A")){
+                ace_checker = true;
+                break;
+            }
+        }
+        if(ace_checker && points > 21){
+            return points - 10;
+        }
+        return points;
+    }
 }

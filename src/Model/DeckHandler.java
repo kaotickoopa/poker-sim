@@ -1,5 +1,5 @@
-/*
-    Name: DeckHandler class
+package Model;/*
+    Name: Model.DeckHandler class
     Author: Mason Cormany
     Date: 07/10/25
     Purpose: Acts like the dealer of cards. Makes an arraylist of cards that can be returned to a proper object. Mainly used for getting a shuffled deck
@@ -75,7 +75,7 @@ public class DeckHandler {
     }
     //Purpose: sets up HashMap for easy point allocation
     private void setUpPointList(){
-        pointMap.put("A",1);
+        pointMap.put("A",11);
         pointMap.put("2", 2);
         pointMap.put("3", 3);
         pointMap.put("4", 4);
@@ -88,13 +88,5 @@ public class DeckHandler {
         pointMap.put("J", 10);
         pointMap.put("Q", 10);
         pointMap.put("K", 10);
-    }
-    //Purpose: Getter
-    private HashMap<Integer, String> getSuitMap() {
-        return suitMap;
-    }
-    //Purpose: Getter
-    private void setSuitMap(HashMap<Integer, String> suitMap) {
-        this.suitMap = suitMap;
     }
 }

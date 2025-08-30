@@ -1,5 +1,5 @@
-/*
-    Name: Deck class
+package Model;/*
+    Name: Model.Deck class
     Author: Mason Cormany
     Date: 07/10/25
     Purpose: Holds an arraylist of cards. Holds methods to add and remove cards as needed.

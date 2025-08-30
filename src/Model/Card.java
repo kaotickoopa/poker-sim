@@ -1,5 +1,5 @@
-/*
-    Name: Card class
+package Model;/*
+    Name: Model.Card class
     Author: Mason Cormany
     Date: 07/10/25
     Purpose: Base card class that can be used for any game! Can assign custom values to cards for different games
