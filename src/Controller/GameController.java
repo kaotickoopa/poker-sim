@@ -8,7 +8,7 @@ import javafx.scene.image.ImageView;
 public class GameController {
 
     private final GameView View;
-    private final BlackjackGame game;
+    private final BlackJack game;
 
     public GameController(GameView view) {
         this.View = view;
@@ -26,7 +26,7 @@ public class GameController {
         });
 
         view.getStayButton().setOnAction(e -> {
-            game.dealerPlay();
+            //game.dealerPlay();
             refreshUI();
             view.getStatusLabel().setText("Dealer finished. Round over.");
         });
@@ -34,23 +34,23 @@ public class GameController {
 
     private void refreshUI() {
         // Clear current displayed cards
-        view.getPlayerCardsBox().getChildren().clear();
-        view.getDealerCardsBox().getChildren().clear();
+        View.getPlayerCardsBox().getChildren().clear();
+        View.getDealerCardsBox().getChildren().clear();
 
         // Add player cards
-        for (Card card : game.getPlayerHand().getCards()) {
-            view.addCardToPlayer(makeCardImage(card));
+        for (Card card : game.getPlayerHand().getHand()) {
+            View.addCardToPlayer(makeCardImage(card));
         }
 
         // Add dealer cards
-        for (Card card : game.getDealerHand().getCards()) {
-            view.addCardToDealer(makeCardImage(card));
+        for (Card card : game.getDealerHand().getHand()) {
+            View.addCardToDealer(makeCardImage(card));
         }
     }
 
     private ImageView makeCardImage(Card card) {
         // Assuming card has rank/suit, and you have matching PNG file in resources/cards/
-        String filename = "/cards/" + card.getRank() + card.getSuit() + ".png";
+        String filename = "/cards/" + card.getValue() + card.getSuit() + ".png";
         Image img = new Image(getClass().getResourceAsStream(filename));
         ImageView imgView = new ImageView(img);
         imgView.setFitWidth(80);

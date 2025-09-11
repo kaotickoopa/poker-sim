@@ -6,9 +6,9 @@ package Model;/*
  */
 
 public class Card {
-    String value;
-    String suit;
-    Integer points;
+    private String value;
+    private String suit;
+    private Integer points;
 
     public Card(String value, String suit, int points){
         this.value = value;

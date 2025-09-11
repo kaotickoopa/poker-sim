@@ -3,6 +3,8 @@ package Model;/*
     Author: Mason Cormany
     Date: 07/10/25
     Purpose: Concrete Blackjack class that holds all game rules.
+
+    Needs: game.isGameOver(), unique hands (only 2 for dealer & player),
  */
 
 import java.util.Scanner;
@@ -47,7 +49,7 @@ public class BlackJack extends Game {
 
             String userInput = getUserInput(in).toLowerCase();
             if(userInput.equals("h")){
-                Card drawnCard = playingDeck.drawCard();
+                Card drawnCard = playerHit();
                 currentHand.addToHand(drawnCard);
                 System.out.println("Player's Model.Hand");
                 currentHand.printHand();
@@ -64,6 +66,18 @@ public class BlackJack extends Game {
                 System.out.println("Invalid input. Try again");
             }
         }
+    }
+
+    public Card playerHit(){
+        return playingDeck.drawCard();
+    }
+
+    public Hand getPlayerHand(){
+        return handMap.get(1);
+    }
+
+    public Hand getDealerHand(){
+        return handMap.get(0);
     }
     //Purpose: Normal dealer turn, they draw until their hand value is greater than 16
     @Override

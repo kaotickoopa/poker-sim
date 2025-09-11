@@ -25,12 +25,16 @@ public abstract class Game {
 
     abstract void playerTurn();
 
+
+    //Shouldn't be in abstract - change to only BlackJack
     abstract void dealerTurn();
 
+    //Shouldn't be in abstract - change to only BlackJack
     abstract void showDown();
 
     abstract String getUserInput(Scanner in);
 
+    //Dive into some interfaces for dealer-centric game designs
     private boolean checkIfOver(){
         while(true) {
             System.out.println("Would you like to keep playing? (y) or (n)");
@@ -44,6 +48,7 @@ public abstract class Game {
             }
         }
     }
+
 
     public void playGame(){
         boolean gameWanted = true;

@@ -3,6 +3,9 @@ package Model;/*
     Author: Mason Cormany
     Date: 07/10/25
     Purpose: Acts like the dealer of cards. Makes an arraylist of cards that can be returned to a proper object. Mainly used for getting a shuffled deck
+
+
+    !!! MERGE WITH DECK !!! - 09/10/2025
  */
 
 import java.util.ArrayList;
